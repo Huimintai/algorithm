@@ -28,7 +28,7 @@ void replaceSpace(char* str)
 	{
 		if(*str != ' ')
 		{
-			head[j] = str[i];
+			head[j] = head[i];
 			i --;
 			j --;
 		}
