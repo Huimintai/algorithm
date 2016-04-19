@@ -26,10 +26,9 @@ void replaceSpace(char* str)
 	int j = len + num * 2;
 	while(i >= 0)
 	{
-		if(*str != ' ')
+		if(head[i] != ' ')
 		{
-			head[j] = str[i];
-			i --;
+			head[j] = head[i];
 			j --;
 		}
 		else
@@ -37,9 +36,9 @@ void replaceSpace(char* str)
 			head[j] = '0';
 			head[j-1] = '2';
 			head[j-2] = '%';
-			i --;
 			j -= 3;
 		}
+		i --;
 	}
 }
 
