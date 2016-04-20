@@ -2,7 +2,7 @@
 
 using namespace std;
 
-<<<<<<< HEAD
+
 bool findNumber(int* a, int row, int cloumn, int value)
 {
 	if(a == NULL)
