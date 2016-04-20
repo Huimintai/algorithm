@@ -39,9 +39,4 @@ int main()
 			cout<<findNumber(*a, 3, 3, a[i][j])<<endl;
 		}
 	}
-}
-=======
-bool find(int* matrix, int rows, int columns, int number)
-{
-	
->>>>>>> 4105d6cb112ad5d01eef4796cdf8c69e2921611e
+
