@@ -2,6 +2,7 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 bool findNumber(int* a, int row, int cloumn, int value)
 {
 	if(a == NULL)
@@ -39,3 +40,8 @@ int main()
 		}
 	}
 }
+=======
+bool find(int* matrix, int rows, int columns, int number)
+{
+	
+>>>>>>> 4105d6cb112ad5d01eef4796cdf8c69e2921611e
