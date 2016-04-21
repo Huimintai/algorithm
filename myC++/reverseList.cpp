@@ -16,14 +16,13 @@ NodeList* reverseList(NodeList* list)
 	}
 	NodeList* p = list;
 	NodeList* q = p->next;
-	p = NULL;
+	p->next = NULL;
 
 	while(q != NULL)
 	{
 		NodeList* tmp = q->next;
 		p = q;
 		q = tmp;
-		tmp = tmp->next;
 	}
 	return p;
 }
