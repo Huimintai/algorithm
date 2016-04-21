@@ -5,13 +5,13 @@ using namespace std;
 
 bool findNumber(int* a, int row, int cloumn, int value)
 {
-	if(a == NULL)
+	if(a == NULL || row <= 0 || cloumn <= 0)
 	{
 		return false;
 	}
 	int i = 0;
 	int c = cloumn;
-	while(i < row && row > 0 && cloumn > 0 )
+	while(i < row && c >= 0)
 	{
 		if(a[i * cloumn + c - 1] == value)
 		{
@@ -39,4 +39,4 @@ int main()
 			cout<<findNumber(*a, 3, 3, a[i][j])<<endl;
 		}
 	}
-
+}
