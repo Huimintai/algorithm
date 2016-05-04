@@ -30,9 +30,9 @@ void theLeastNum(int*a, int len, int* b, int k)
 		return;
 	}
 	int index = partition(a, 0, len-1);
-	while(k != index)
+	while(index != k-1)
 	{
-		if(index > k)
+		if(index > k -1)
 		{
 			index = partition(a, 0, index-1);
 		}
