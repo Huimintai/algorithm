@@ -11,19 +11,17 @@ void swap(int& a, int& b)
 
 int partition(int* array, int low, int high)
 {
-	int i = low;
-	int j = low - 1;
-	int pivot = array[high];
-	for(i=0; i<high; i++)
+	int i = low - 1;
+	int j = low;
+	for(; j<high; j++)
 	{
-		if(array[i] < pivot)
+		if(array[j] < array[high])
 		{
-			j ++;
-			swap(array[j], array[i]);
+			swap(array[j], array[++i]);
 		}
 	}
-	swap(array[j+1], array[high]);
-	return j+1;
+	swap(array[++i], array[high]);
+	return i;
 }
 
 void myQuickSort(int* array, int low, int high)
@@ -39,7 +37,7 @@ void myQuickSort(int* array, int low, int high)
 int main()
 {
 	int a[5] = {3, 6, 1, 7, 5};
-	myQuickSort(a, 0, 5);
+	myQuickSort(a, 0, 4);
 	for(int i=0; i<5; i++)
 	{
 		cout<<a[i]<<endl;
