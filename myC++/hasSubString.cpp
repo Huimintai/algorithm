@@ -8,7 +8,7 @@ bool hasSubString(const char* srcStr, const char* keyStr)
 	{
 		return false;
 	}
-	while(srcStr != '\0')
+	while(*srcStr != '\0')
 	{
 		const char* p = srcStr;
 		const char* q = keyStr;
@@ -29,6 +29,6 @@ bool hasSubString(const char* srcStr, const char* keyStr)
 int main()
 {
 	char a[12] = "asdfgh";
-	char b[12] = "dfs";
+	char b[12] = "df";
 	cout<<hasSubString(a, b)<<endl;
 }
