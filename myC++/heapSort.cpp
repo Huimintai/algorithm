@@ -5,20 +5,24 @@ using namespace std;
 void adjustHeap(int* array, int p, int len)
 {
 	int curParent = array[p];
-	int child = 2 *p + 1;
+	int child = 2 * p + 1;
 	while(child < len)
 	{
 		if(child+1<len&&array[child]<array[child+1])
 		{
 			child ++;
 		}
-		if(curParent<child)
+		if(curParent<array[child])
 		{
 			array[p] = array[child];
 			p = child;
-			child = 2 * child + 1;
+			child = 2 * p + 1;
 		}
-		break;
+		else
+		{
+			break;
+		}
+	}
 	array[p] = curParent;
 }
 
@@ -34,5 +38,16 @@ void heapSort(int* array, int len)
 		array[0] = array[i];
 		array[i] = temp;
 		adjustHeap(array, 0, i);
+	}
+}
+
+int main()
+{
+	int a[6] = {23,12,90,4,34,56};
+	heapSort(a, 6);
+	for(int i=0; i<6; i++)
+	{
+		cout<<a[i]<<" ";
+		cout<<endl;
 	}
 }
