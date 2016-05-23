@@ -29,10 +29,7 @@ void replaceSpace(char* str)
 		if(head[i] != ' ')
 		{
 			head[j] = head[i];
-<<<<<<< HEAD
-=======
 			i --;
->>>>>>> 4237d0e5ecc646bb5851c0e2ec495822f1b0ca0e
 			j --;
 		}
 		else
