@@ -29,7 +29,7 @@ int find7(int num)
 
 int main()
 {
-	cout<<find7(25)<<endl;
+	cout<<find7(20)<<endl;
 }
 		
 		
