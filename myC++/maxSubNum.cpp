@@ -1,17 +1,15 @@
 #include<iostream>
-
+#include<stdlib>
+#include<cmath>
+#include<map>
+#include<string>
 using namespace std;
 
-void getNum(char* s)
+void getNum(string s)
 {
-	int curValue = 0;
-	int maxValue = 0;
-	while(*s != '\0')
+	map<char, int> m;
+	for(int i=0; i<10; i++)
 	{
-		curValue = *s - '0';
-		if(*(++s)- '0' > curValue)
-		{
-			curValue = curValue * 10 + *s - '0';
-		}
-		s++;
+		m['0'+i] = i;
 	}
+	int len = s.length();
