@@ -1,41 +1,30 @@
 #include<iostream>
-
+#include<algorithm>
 using namespace std;
 
-void bubbleSort(int* a, int len)
+bool compare(int a ,int b)
 {
-	for(int i=0; i<len-1; i++)
-	{
-		for(int j=len-1; j>i; j--)
-		{
-			if(a[j] < a[j-1])
-			{
-				int temp = a[j];
-				a[j] = a[j-1];
-				a[j-1] = temp;
-			}
-		}
-	}
+	return a > b;
 }
 
 void scort(int* input, int n, int* output)
 {
-	bubbleSort(input, n);
-	int i = n / 2;
-	output[i] = input[n-1];
-	n--;
-	i--;
-	while(i >=0)
+	sort(input, input+n, compare);
+	for(int i=0; i<n; i++)
 	{
-		output[i] = input[n-2];
-		i--;
-		n -= 2;
+		cout<<input[i]<<" ";
 	}
-	while(i < n)
+	cout<<endl;
+	for(int i=0; i<n; i++)
 	{
-		output[i] = input[n+2];
-		i++;
-		n +=2;
+		if(i%2 == 0)
+		{
+			output[n/2 + i/2] = input[i];
+		}
+		else
+		{
+			output[n/2 - i/2 - 1] = input[i];
+		}
 	}
 }
 
