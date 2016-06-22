@@ -40,14 +40,16 @@ void sortVowel(char* s, char* output)
 		s++;
 		
 	}
-	sort(output, output+len, cmp);
+//	sort(output, output+len, cmp);
+//	cout<<output<<endl;
 }
 
 int main()
 {
-	char s[] = "esdsafdsAIOODUE";
-	char a[] = {'\0'};
+	char s[10] = "eAEIOUDUE";
+	char a[10];
 	sortVowel(s, a);
-//	sort(a, a+100, cmp);
+//	int len = strlen(a);
+	sort(a, a+10, cmp);
 	cout<<a<<endl;
 }
