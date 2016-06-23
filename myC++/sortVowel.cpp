@@ -19,6 +19,7 @@ bool cmp(char a, char b)
 void sortVowel(char* s, char* output)
 {
 	int len = strlen(s);
+	char* p = output;
 	while(*s != '\0')
 	{
 		switch(*s)
@@ -33,15 +34,16 @@ void sortVowel(char* s, char* output)
 			case 'I':
 			case 'O':
 			case 'U':
-				*output++ = *s;
+				*p = *s;
 			default :
 				break;
 		}
 		s++;
+		p++;
 		
 	}
-//	sort(output, output+len, cmp);
-//	cout<<output<<endl;
+	*p = '\0';
+	sort(output, output+len, cmp);
 }
 
 int main()
@@ -49,7 +51,5 @@ int main()
 	char s[10] = "eAEIOUDUE";
 	char a[10];
 	sortVowel(s, a);
-//	int len = strlen(a);
-	sort(a, a+10, cmp);
 	cout<<a<<endl;
 }
