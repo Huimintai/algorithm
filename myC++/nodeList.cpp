@@ -31,7 +31,6 @@ void travelList(Node* head)
 		cout<<p->value<<" ";
 		p = p->next;
 	}
-	return;
 }
 
 Node* transNeighbor(Node* head)
