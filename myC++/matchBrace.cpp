@@ -5,41 +5,51 @@ using namespace std;
 
 int matchBrace(char* input)
 {
-	int answer = 1;
-	stack<char> a;
-	int len = strlen(input);
-	for(int i=0; i<len; i++)
+	char s[100];
+	int j=0;
+	int flag = 0;
+	int len =  strlen(input);
+	for(int i=0; i<len&&flag==0; i++)
 	{
-		if(input[i]=='('||input[i]=='[')
+		switch(input[i])
 		{
-			a.push(input[i]);
-		}
-		if(a.size()>0&&(input[i]==')'||input[i]==']'))
-		{
-			if(input[i]==')'&&a.top()=='(')
-			{
-				a.pop();
-			}
-			else if(input[i]==']'&&a.top()=='[')
-			{
-				a.pop();
-			}
-			else
-			{
-				answer = 0;
+			case '(' :
+			case '[' :
+				s[j] = input[i];
+				j++;
 				break;
-			}
+			case ')' :
+				if(input[i-1] == '(')
+				{
+					s[j-1] = '\0';
+					j--;
+				}
+				else
+				{
+					flag = 1;
+				}
+				break;
+			case ']' :
+				if(input[i-1] = '[')
+				{
+					s[j-1] = '\0';
+					j--;
+				}
+				else
+				{
+					flag = 1;
+				}
+				break;
+			default :
+				break;
 		}
 	}
-	if(a.size()!=0)
-	{
-		answer = 0;
-	}
-	return answer;
+	return flag;
 }
+		
 
 int main()
 {
-	char s[14] = "()";
+	char s[100] ="dfss(fdds)[dsfsd]";
 	cout<<matchBrace(s)<<endl;
 }
