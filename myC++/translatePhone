@@ -1,0 +1,77 @@
+//
+//  main.mm
+//  CPPLearning
+//
+//  Created by admin on 16/7/6.
+//  Copyright © 2016年 Huimin. All rights reserved.
+//
+
+#include <iostream>
+using namespace std;
+
+/**
+ *  翻译字符串为电话号码，如input:"TwoSevenDoubleSix",需要翻译为"2766"写入output
+ *  单词拼错或出现连续两次Double或Double出现在最后则翻译不成功，将"ERROR"写入output
+ */
+void translatePhone(char * const input, char *output) {
+    /**dictionary 和index是一一对应关系**/
+    char dictionary[11][7] = {"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Zero", "Double"};
+    char index[12] = "1234567890D";
+    
+    char word[100] = {'\0'};//word记录input里的每个以大写开头的单词
+    
+    char *p = input, *q = output, *w = word;
+    while (*p != '\0') {
+        if (*p >= 'A' && *p <= 'Z') {
+            *w ++ = *p ++;
+            while (*p >= 'a' && *p <= 'z') {
+                *w ++ = *p ++;
+            }
+            
+            //查找word在dictionary里是否存在
+            int i;
+            for (i=0; i<11; i++) {
+                if (strcmp(dictionary[i], word) == 0) {//存在则把index[i]这个字符写入output
+                    *q ++ = index[i];
+                    break;
+                }
+            }
+            if (i == 11) {//不存在
+                strcpy(output, "ERROR");
+                return;
+            }
+            
+            memset(word, '\0', 100);
+            w = word;
+            
+        } else {
+            strcpy(output, "ERROR");
+            return;
+        }
+    }
+    *q = '\0';
+    
+    q = output;
+    while (*q != '\0') {
+        if (*q == 'D') {
+            if ( *(q + 1) == 'D' || *(q + 1) == '\0' ) {
+                strcpy(output, "ERROR");
+                return;
+            } else {
+                *q = *(q + 1);
+            }
+        }
+        q ++;
+    }
+}
+
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        char s[] = "TwoSixDoubleZero";
+        char number[15];
+        translatePhone(s, number);
+        cout<<number<<endl;
+    }
+    return 0;
+}
