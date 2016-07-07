@@ -23,6 +23,7 @@ void replaceStr(char* srcStr, char* key, char* dest)
 		}
 		if(*k == '\0')
 		{
+			k = key;
 			srcStr -= len;
 			while(*d != '\0')
 			{
